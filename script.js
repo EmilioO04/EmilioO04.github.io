@@ -1,76 +1,60 @@
 // Obtener los elementos necesarios
-const form = document.getElementById('formAgregarPersonaje');
-const personajesLista = document.getElementById('personajes-lista');
-
-// Personajes predeterminados de Naruto
-const personajesIniciales = [
-    {
-        nombre: "Naruto Uzumaki",
-        rol: "Héroe",
-        universo: "Naruto",
-        poder: "Rasengan",
-        tipoPoder: "Ninjutsu",
-        debilidad: "No controlar el chakra",
-        tipoDebilidad: "Físico",
-        puntosPoder: 95,
-        nivelPoder: 90
-    },
-    {
-        nombre: "Sasuke Uchiha",
-        rol: "Anti-héroe",
-        universo: "Naruto",
-        poder: "Chidori",
-        tipoPoder: "Ninjutsu",
-        debilidad: "Amistades débiles",
-        tipoDebilidad: "Emocional",
-        puntosPoder: 90,
-        nivelPoder: 88
-    },
-    {
-        nombre: "Sakura Haruno",
-        rol: "Héroe",
-        universo: "Naruto",
-        poder: "Chakra Control",
-        tipoPoder: "Técnica médica",
-        debilidad: "Falta de confianza",
-        tipoDebilidad: "Psicológico",
-        puntosPoder: 80,
-        nivelPoder: 75
-    }
-];
+const formAgregar = document.getElementById('formAgregarPersonaje');
+const formBatalla = document.getElementById('formBatalla');
+const formComparar = document.getElementById('formComparar');
+const resultadoBatalla = document.getElementById('resultado-batalla');
+const resultadoComparacion = document.getElementById('resultado-comparacion');
 
 // Función para cargar los personajes del localStorage
 function cargarPersonajes() {
-    // Obtener los personajes almacenados en el localStorage, o los iniciales si no existen
-    const personajes = JSON.parse(localStorage.getItem('personajes')) || personajesIniciales;
+    const personajes = JSON.parse(localStorage.getItem('personajes')) || [];
 
-    // Limpiar la lista antes de volver a cargarla
-    personajesLista.innerHTML = '';
+    // Cargar personajes en los selectores
+    cargarSelectores(personajes);
 
-    // Mostrar todos los personajes en la página
+    return personajes;
+}
+
+// Función para cargar los personajes en los selectores de batalla y comparar
+function cargarSelectores(personajes) {
+    const selector1 = document.getElementById('personaje1');
+    const selector2 = document.getElementById('personaje2');
+    const comparar1 = document.getElementById('comparar1');
+    const comparar2 = document.getElementById('comparar2');
+
+    // Limpiar los selectores
+    selector1.innerHTML = '<option value="">Selecciona un personaje</option>';
+    selector2.innerHTML = '<option value="">Selecciona un personaje</option>';
+    comparar1.innerHTML = '<option value="">Selecciona un personaje</option>';
+    comparar2.innerHTML = '<option value="">Selecciona un personaje</option>';
+
     personajes.forEach(personaje => {
-        const div = document.createElement('div');
-        div.classList.add('personaje');
-        div.innerHTML = `
-            <h3>${personaje.nombre}</h3>
-            <p><strong>Rol:</strong> ${personaje.rol}</p>
-            <p><strong>Universo:</strong> ${personaje.universo}</p>
-            <p><strong>Poder:</strong> ${personaje.poder}</p>
-            <p><strong>Tipo Poder:</strong> ${personaje.tipoPoder}</p>
-            <p><strong>Debilidad:</strong> ${personaje.debilidad}</p>
-            <p><strong>Tipo Debilidad:</strong> ${personaje.tipoDebilidad}</p>
-            <p><strong>Puntos de Poder:</strong> ${personaje.puntosPoder}</p>
-            <p><strong>Nivel de Poder:</strong> ${personaje.nivelPoder}</p>
-        `;
-        personajesLista.appendChild(div);
+        const option1 = document.createElement('option');
+        option1.value = personaje.nombre;
+        option1.textContent = personaje.nombre;
+        selector1.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = personaje.nombre;
+        option2.textContent = personaje.nombre;
+        selector2.appendChild(option2);
+
+        const optionC1 = document.createElement('option');
+        optionC1.value = personaje.nombre;
+        optionC1.textContent = personaje.nombre;
+        comparar1.appendChild(optionC1);
+
+        const optionC2 = document.createElement('option');
+        optionC2.value = personaje.nombre;
+        optionC2.textContent = personaje.nombre;
+        comparar2.appendChild(optionC2);
     });
 }
 
-// Función para agregar un personaje al localStorage
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío del formulario
+// Función para agregar un personaje
+formAgregar && formAgregar.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // Obtener los datos del formulario
     const nuevoPersonaje = {
         nombre: document.getElementById('nombre').value,
         rol: document.getElementById('rol').value,
@@ -79,25 +63,54 @@ form.addEventListener('submit', function(event) {
         tipoPoder: document.getElementById('tipoPoder').value,
         debilidad: document.getElementById('debilidad').value,
         tipoDebilidad: document.getElementById('tipoDebilidad').value,
-        puntosPoder: document.getElementById('puntosPoder').value,
-        nivelPoder: document.getElementById('nivelPoder').value
+        puntosPoder: parseInt(document.getElementById('puntosPoder').value),
+        nivelPoder: parseInt(document.getElementById('nivelPoder').value)
     };
 
-    // Obtener los personajes almacenados, o un array vacío si no existen
     const personajes = JSON.parse(localStorage.getItem('personajes')) || [];
-
-    // Agregar el nuevo personaje al array
     personajes.push(nuevoPersonaje);
 
-    // Guardar el array actualizado en el localStorage
     localStorage.setItem('personajes', JSON.stringify(personajes));
 
-    // Limpiar los campos del formulario
-    form.reset();
-
-    // Volver a cargar la lista de personajes
-    cargarPersonajes();
+    formAgregar.reset();
+    cargarSelectores(personajes);
 });
 
-// Cargar los personajes cuando la página se carga
-window.onload = cargarPersonajes;
+// Función para la batalla entre dos personajes
+formBatalla && formBatalla.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const personaje1 = document.getElementById('personaje1').value;
+    const personaje2 = document.getElementById('personaje2').value;
+
+    const personajes = cargarPersonajes();
+
+    const p1 = personajes.find(p => p.nombre === personaje1);
+    const p2 = personajes.find(p => p.nombre === personaje2);
+
+    if (p1 && p2) {
+        const ganador = p1.puntosPoder > p2.puntosPoder ? p1.nombre : p2.nombre;
+        resultadoBatalla.innerHTML = `<h3>El ganador es: ${ganador}</h3>`;
+    } else {
+        resultadoBatalla.innerHTML = "<p>Selecciona dos personajes para la batalla.</p>";
+    }
+});
+
+// Función para comparar dos personajes
+formComparar && formComparar.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const comparar1 = document.getElementById('comparar1').value;
+    const comparar2 = document.getElementById('comparar2').value;
+
+    const personajes = cargarPersonajes();
+
+    const p1 = personajes.find(p => p.nombre === comparar1);
+    const p2 = personajes.find(p => p.nombre === comparar2);
+
+    if (p1 && p2) {
+        const resultado = compararPersonajes(p1, p2);
+        resultadoComparacion.innerHTML = `<h3>Comparación:</h3><p>${resultado}</p>`;
+    } else {
+        resultadoComparacion.innerHTML = "<p
+
