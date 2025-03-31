@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comparar Personajes</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Personajes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Comparar Personajes</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="agregar.html">Agregar Personaje</a></li>
-        <li><a href="batalla.html">Batalla de Personajes</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section>
-    <h2>Comparar Personajes</h2>
-    <form id="form-comparar">
-      <label for="personaje1">Selecciona el primer personaje:</label>
-      <select id="personaje1" required>
-        <option value="">Elige un personaje</option>
-      </select>
+    <header>
+        <h1>Comparar Personajes</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
 
-      <label for="personaje2">Selecciona el segundo personaje:</label>
-      <select id="personaje2" required>
-        <option value="">Elige un personaje</option>
-      </select>
+    <main>
+        <div class="form-container">
+            <h2>Selecciona dos personajes para comparar</h2>
+            <form id="formComparar">
+                <select id="comparar1">
+                    <!-- Los personajes se cargarán dinámicamente -->
+                </select>
+                <select id="comparar2">
+                    <!-- Los personajes se cargarán dinámicamente -->
+                </select>
+                <button type="submit">Comparar Personajes</button>
+            </form>
 
-      <button type="submit">Comparar</button>
-    </form>
+            <div id="resultado-comparacion">
+                <!-- El resultado de la comparación aparecerá aquí -->
+            </div>
+        </div>
+    </main>
 
-    <div id="resultado-comparacion"></div>
-  </section>
+    <footer>
+        <p>© 2025 Sistema de Personajes - Naruto</p>
+    </footer>
 
-
-  <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
