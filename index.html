@@ -1,43 +1,39 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Personajes - Naruto</title>
+    <title>Comparador de Naruto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Comparador de Personajes - Naruto</h1>
+    
+    <div class="formulario">
+        <h2>Agregar Personaje</h2>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="rol" placeholder="Rol">
+        <input type="text" id="poder" placeholder="Poder Principal">
+        <input type="number" id="nivelPoder" placeholder="Nivel de Poder">
+        <button onclick="agregarPersonaje()">Agregar</button>
+    </div>
 
-    <header>
-        <h1>Sistema de Personajes - Naruto</h1>
-    </header>
+    <h2>Lista de Personajes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th><th>Rol</th><th>Poder</th><th>Nivel</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPersonajes"></tbody>
+    </table>
 
-    <main>
-        <div class="form-container">
-            <h2>Agregar Personaje</h2>
-            <form id="formAgregarPersonaje">
-                <input type="text" id="nombre" placeholder="Nombre del personaje" required>
-                <input type="text" id="rol" placeholder="Rol" required>
-                <input type="text" id="universo" placeholder="Universo" required>
-                <input type="text" id="poder" placeholder="Poder principal" required>
-                <input type="text" id="tipoPoder" placeholder="Tipo de poder" required>
-                <input type="text" id="debilidad" placeholder="Debilidad" required>
-                <input type="text" id="tipoDebilidad" placeholder="Tipo de debilidad" required>
-                <input type="number" id="puntosPoder" placeholder="Puntos de poder" required>
-                <input type="number" id="nivelPoder" placeholder="Nivel de poder" required>
-                <button type="submit">Agregar Personaje</button>
-            </form>
-        </div>
-
-        <div id="personajes-lista">
-            <!-- Aquí se mostrarán los personajes -->
-        </div>
-    </main>
-
-    <footer>
-        <p>© 2025 Sistema de Personajes - Naruto</p>
-    </footer>
-
+    <h2>Comparar Personajes</h2>
+    <select id="comparar1"></select>
+    <select id="comparar2"></select>
+    <button onclick="compararPersonajes()">Comparar</button>
+    <p id="resultadoComparacion"></p>
+    
     <script src="script.js"></script>
 </body>
 </html>
