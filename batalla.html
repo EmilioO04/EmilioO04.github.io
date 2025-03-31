@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalla de Personajes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Batalla de Personajes</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="agregar.html">Agregar Personaje</a></li>
+        <li><a href="comparar.html">Comparar Personajes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Elige los personajes para la batalla</h2>
+    <form id="form-batalla">
+      <label for="personaje1">Selecciona el primer personaje:</label>
+      <select id="personaje1" required>
+        <option value="">Elige un personaje</option>
+      </select>
+
+      <label for="personaje2">Selecciona el segundo personaje:</label>
+      <select id="personaje2" required>
+        <option value="">Elige un personaje</option>
+      </select>
+
+      <button type="submit">¡Batalla!</button>
+    </form>
+
+    <div id="resultado-batalla"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sistema de Personajes</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
