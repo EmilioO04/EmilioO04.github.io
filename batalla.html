@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Batalla de Personajes</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalla de Personajes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Batalla de Personajes</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="agregar.html">Agregar Personaje</a></li>
-        <li><a href="comparar.html">Comparar Personajes</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section>
-    <h2>Elige los personajes para la batalla</h2>
-    <form id="form-batalla">
-      <label for="personaje1">Selecciona el primer personaje:</label>
-      <select id="personaje1" required>
-        <option value="">Elige un personaje</option>
-      </select>
+    <header>
+        <h1>Batalla entre Personajes</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
 
-      <label for="personaje2">Selecciona el segundo personaje:</label>
-      <select id="personaje2" required>
-        <option value="">Elige un personaje</option>
-      </select>
+    <main>
+        <div class="form-container">
+            <h2>Selecciona dos personajes para la batalla</h2>
+            <form id="formBatalla">
+                <select id="personaje1">
+                    <!-- Los personajes se cargarán dinámicamente -->
+                </select>
+                <select id="personaje2">
+                    <!-- Los personajes se cargarán dinámicamente -->
+                </select>
+                <button type="submit">Comenzar Batalla</button>
+            </form>
 
-      <button type="submit">¡Batalla!</button>
-    </form>
-
-    <div id="resultado-batalla"></div>
-  </section>
+            <div id="resultado-batalla">
+                <!-- El resultado de la batalla aparecerá aquí -->
+            </div>
+        </div>
+    </main>
 
 
-
-  <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
