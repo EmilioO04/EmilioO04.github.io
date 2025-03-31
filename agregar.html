@@ -1,59 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agregar Personaje</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Personaje</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Agregar Personaje</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="comparar.html">Comparar Personajes</a></li>
-        <li><a href="batalla.html">Batalla de Personajes</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section>
-    <h2>Agrega los detalles del personaje</h2>
-    <form id="form-personaje">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" required>
+    <header>
+        <h1>Agregar Personaje</h1>
+        <a href="index.html">Volver al inicio</a>
+    </header>
 
-      <label for="rol">Rol:</label>
-      <input type="text" id="rol" required>
+    <main>
+        <div class="form-container">
+            <h2>Formulario para agregar un personaje</h2>
+            <form id="formAgregarPersonaje">
+                <input type="text" id="nombre" placeholder="Nombre del personaje" required>
+                <input type="text" id="rol" placeholder="Rol" required>
+                <input type="text" id="universo" placeholder="Universo" required>
+                <input type="text" id="poder" placeholder="Poder principal" required>
+                <input type="text" id="tipoPoder" placeholder="Tipo de poder" required>
+                <input type="text" id="debilidad" placeholder="Debilidad" required>
+                <input type="text" id="tipoDebilidad" placeholder="Tipo de debilidad" required>
+                <input type="number" id="puntosPoder" placeholder="Puntos de poder" required>
+                <input type="number" id="nivelPoder" placeholder="Nivel de poder" required>
+                <button type="submit">Agregar Personaje</button>
+            </form>
+        </div>
+    </main>
 
-      <label for="universo">Universo:</label>
-      <input type="text" id="universo" required>
 
-      <label for="poder">Poder Principal:</label>
-      <input type="text" id="poder" required>
 
-      <label for="tipo_poder">Tipo de Poder:</label>
-      <input type="text" id="tipo_poder" required>
-
-      <label for="debilidad">Debilidad:</label>
-      <input type="text" id="debilidad" required>
-
-      <label for="tipo_debilidad">Tipo de Debilidad:</label>
-      <input type="text" id="tipo_debilidad" required>
-
-      <label for="puntos_poder">Puntos de Poder:</label>
-      <input type="number" id="puntos_poder" required>
-
-      <label for="nivel_poder">Nivel de Poder:</label>
-      <input type="number" id="nivel_poder" required>
-
-      <button type="submit">Agregar Personaje</button>
-    </form>
-  </section>
-
- 
-
-  <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
