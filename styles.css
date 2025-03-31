@@ -1,86 +1,36 @@
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
+    background-color: #87CEEB;
     text-align: center;
 }
 
-main {
-    padding: 20px;
+h1, h2 {
+    color: #00008B;
 }
 
-.form-container {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-form input {
-    display: block;
-    width: 100%;
+.formulario {
+    margin: 20px auto;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    background: white;
+    border-radius: 5px;
+    width: 300px;
 }
 
-form button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
+input, button, select {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #00008B;
+    border-radius: 5px;
 }
 
-form button:hover {
-    background-color: #218838;
+table {
+    width: 80%;
+    margin: auto;
+    background: white;
+    border-collapse: collapse;
 }
 
-footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-#personajes-lista {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.personaje {
-    background-color: #fff;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    box-sizing: border-box;
-}
-
-.personaje h3 {
-    margin-top: 0;
-}
-
-.personaje p {
-    margin: 5px 0;
+th, td {
+    padding: 10px;
+    border: 1px solid black;
 }
