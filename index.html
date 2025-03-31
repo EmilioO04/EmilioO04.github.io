@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Personajes</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Personajes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Sistema de Personajes</h1>
-    <nav>
-      <ul>
-        <li><a href="agregar.html">Agregar Personaje</a></li>
-        <li><a href="comparar.html">Comparar Personajes</a></li>
-        <li><a href="batalla.html">Batalla de Personajes</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section id="info">
-    <h2>Bienvenido al sistema de personajes. Selecciona una opción en el menú.</h2>
-  </section>
+    <header>
+        <h1>Sistema de Personajes</h1>
+    </header>
 
+    <main>
+        <div>
+            <!-- Formulario para agregar personajes -->
+            <form id="formAgregarPersonaje">
+                <input type="text" id="nombre" placeholder="Nombre del personaje" required>
+                <input type="text" id="rol" placeholder="Rol" required>
+                <input type="text" id="universo" placeholder="Universo" required>
+                <input type="text" id="poder" placeholder="Poder principal" required>
+                <input type="text" id="tipoPoder" placeholder="Tipo de poder" required>
+                <input type="text" id="debilidad" placeholder="Debilidad" required>
+                <input type="text" id="tipoDebilidad" placeholder="Tipo de debilidad" required>
+                <input type="number" id="puntosPoder" placeholder="Puntos de poder" required>
+                <input type="number" id="nivelPoder" placeholder="Nivel de poder" required>
+                <button type="submit">Agregar Personaje</button>
+            </form>
 
+            <!-- Lista de personajes -->
+            <div id="personajes-lista">
+                <!-- Aquí se mostrarán los personajes -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Sistema de Personajes</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
